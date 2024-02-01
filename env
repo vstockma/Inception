@@ -1,0 +1,15 @@
+            # - MARIA DB - #
+MYSQL_DB=Inception
+MYSQL_ROOT_PASS=root
+MYSQL_USER=vstockma
+MYSQL_PASS=userpass
+
+            # - WORDPRESS - #
+WP_TITLE=42Inception
+WP_PATH=/var/www/html
+WP_ADMIN=vstockma
+WP_ADMIN_PASS=admin
+WP_ADMIN_MAIL=vstockma@yahoo.com
+WP_USER=user
+WP_USER_PASS=userpass
+WP_USER_MAIL=user@yahoo.com
