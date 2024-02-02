@@ -24,6 +24,9 @@ nginx:
 mariadb:
 	@docker exec -it mariadb bash
 
+clock:
+	@sudo service systemd-timesyncd restart
+
 fclean:
 	@docker-compose -f srcs/docker-compose.yml down
 	@docker system prune --all --force --volumes
