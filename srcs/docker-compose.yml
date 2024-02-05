@@ -1,3 +1,4 @@
+# Definiert die Version von Docker Compose
 version: '3.8'
 
 services:
@@ -29,19 +30,31 @@ services:
     restart: on-failure
 
   nginx:
+    # Verwendet das Dockerfile in ./requirements/nginx für den Build
     build: ./requirements/nginx
+    # Gibt dem Container den Namen "nginx"
     container_name: nginx
+    # Hängt von dem WordPress-Dienst ab, startet erst, wenn dieser bereit ist
     depends_on:
       - wordpress
+    # Lädt Umgebungsvariablen aus der .env-Datei
     env_file: .env
+    # Mapped den Port 443 auf dem Host auf den Port 443 im Container
     ports:
       - "443:443"
+    # Verbindet das Volume "wordpress" mit dem Verzeichnis /var/www/html im Container
+    # Im Volume werden die Daten des Containers gespeichert selbst wenn er gelöscht wird
     volumes:
       - wordpress:/var/www/html
+    # Verbindet den Container mit dem Netzwerk "inception"
     networks:
       - inception
+    # Startet den Container erneut, falls er fehlschlägt
     restart: on-failure
 
+# docker networks verbindet verschiedene Container,
+# das diese miteinander kommunizieren können
+# und Daten zwischen den Containern ausgetauscht werden können
 networks:
   inception:
     driver: bridge

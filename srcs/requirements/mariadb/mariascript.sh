@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# starting the database server
+# starting the database server if Inception doesnt exist
 if [ ! -d "/var/lib/mysql/Inception" ]; then
 /usr/bin/mysqld_safe --datadir=/var/lib/mysql &
 
