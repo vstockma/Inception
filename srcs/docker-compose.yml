@@ -1,4 +1,3 @@
-# Definiert die Version von Docker Compose
 version: '3.8'
 
 services:
